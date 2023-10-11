@@ -1,0 +1,27 @@
+#confirm-image-box{
+    display: none;
+}
+
+html{
+    height:100%;
+}
+
+body , #photo-editor-panel .row{
+    height:85%;
+}
+
+.custom-main-box{
+    height:100% !important;
+}
+#photo-editor-panel {
+    height: 100%;
+}
+#Imagecanvas{
+    height:100%;
+    width: 100%;
+    display: none;
+}
+
+#imageOperationBox , #imageOperationBox2{
+    display: none;
+}
