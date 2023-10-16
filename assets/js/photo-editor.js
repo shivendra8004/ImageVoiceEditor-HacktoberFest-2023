@@ -227,6 +227,10 @@ function changeImageSepia(sepia) {
   if (sepia) {
     global_sepia = 1;
   }
+  else {
+    global_sepia = 0;
+  }
+  
   UpdateImageFilter();
 }
 
