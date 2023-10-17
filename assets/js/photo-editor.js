@@ -326,3 +326,24 @@ $(document).ready(function () {
     // UpdateImageFilter();
   });
 });
+
+document.getElementById("save_image_btn").addEventListener("click", function() {
+  downloadCanvasImage();
+});
+function downloadCanvasImage() {
+    let imageFileName = document.getElementById("image_filename").value || "image";
+    let imageFormat = document.getElementById("image_format").value || "png";
+
+    let imageDataURL = canvas.toDataURL(`image/${imageFormat}`);
+
+    let downloadLink = document.createElement("a");
+    downloadLink.href = imageDataURL;
+    downloadLink.download = `${imageFileName}.${imageFormat}`;
+
+    document.body.appendChild(downloadLink); 
+    downloadLink.click();
+
+    document.body.removeChild(downloadLink);
+
+    $('#exampleModal').modal('hide');
+}
