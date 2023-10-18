@@ -208,17 +208,26 @@
               <br />
 
               <div class="btn-group" role="group">
-                <button type="button" class="btn btn-success" id="confirmImage">
-                  Confirm
-                </button>
-                &nbsp;
-                <button type="button" class="btn btn-danger" id="cancleImage">
-                  Cancel
-                </button>
+
+                <div class="col">
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    id="confirmImage"
+                  >
+                    Confirm
+                  </button>
+                </div>
+                <div class="col">
+                  <button type="button" class="btn btn-danger" id="cancleImage">
+                    Cancel
+                  </button>
+                </div>
+
               </div>
             </div>
           </div>
-          <div class="col-6" id="canvasBox">
+          <div class="col-5" id="canvasBox">
             <canvas id="Imagecanvas"> </canvas>
           </div>
 
@@ -306,7 +315,7 @@
                     <input type="range" min="0" max="100" value="0" class="form-range" id="opacity_range"> -->
           </div>
 
-          <div class="col-2" id="imageOperationBox2">
+          <div class="col-3" id="imageOperationBox2">
             <label for="customRange1" class="form-label">
               Invert - <label id="invert_range_counter">0</label> %
             </label>
@@ -363,23 +372,42 @@
             </label>
             <input type="color" class="form-range" id="drop_shadow_color" />
 
-            <div class="btn-group" role="group" aria-label="Basic example">
+            <div
+              class="btn-group d-flex flex-md-row flex-column justify-content-between mt-2 column-gap-1"
+              role="group"
+              aria-label="Basic example"
+            >
               <button
+                class="btn btn-secondary px-3"
                 type="button"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
+                id="imagecompare"
+                value="0"
               >
-                Download
+                Show Old
               </button>
-              &nbsp;
-              <button type="button" id="reset_image_filter">
-                Reset Filter's
+              <button
+                class="btn btn-warning px-3"
+                type="button"
+                id="reset_image_filter"
+              >
+                Reset Filters
               </button>
-              &nbsp;
-              <button type="button" id="reset_image">Reset Image</button>
+              <button
+                class="btn btn-danger px-2"
+                type="button"
+                id="reset_image"
+              >
+                Reset Image
+              </button>
             </div>
-            <br />
-            <button type="button" id="imagecompare" value="0">Show Old</button>
+            <button
+              type="button"
+              class="btn btn-success mt-2 w-100 text-center"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Download
+            </button>
           </div>
         </div>
       </div>
