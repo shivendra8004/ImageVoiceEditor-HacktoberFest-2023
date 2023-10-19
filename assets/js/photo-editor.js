@@ -146,9 +146,9 @@ function compareImage() {
     $("#imagecompare").val("1");
     $("#imagecompare").text("Show Edited");
   } else {
-    // UpdateImageFilter();
-    // $("#imagecompare").val("0");
-    // $("#imagecompare").text("Show Old");
+    UpdateImageFilter();
+    $("#imagecompare").val("0");
+    $("#imagecompare").text("Show Old");
   }
 }
 
