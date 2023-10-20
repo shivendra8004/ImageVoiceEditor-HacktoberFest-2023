@@ -74,38 +74,16 @@ nav .right-container a:hover {
     background-color: transparent;
     z-index: 2;
 }
-
-.smart-mode-card,
-.photo-editor-card {
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-    transition: 0.2s ease-in-out;
-    transform: scale(0.9);
-    transform-origin: top;
-    box-shadow: 10px 20px 50px rgb(58, 57, 57, 0.7);
+.features .photo-editor,
+.features .photo-editor-smart {
+    height: 65vh;
+    border: 1px solid #00000050;
+    border-radius: 8px;
 }
-
-.smart-mode-card {
-    background: whitesmoke;
-    overflow: hidden;
+.features .photo-editor img,
+.features .photo-editor-smart img {
+    width: 50%;
 }
-
-.smart-mode-card div {
-    z-index: 5;
-}
-
-.photo-editor-card {
-    background: #212529;
-    color: whitesmoke;
-}
-
-.smart-mode-card:hover,
-.photo-editor-card:hover {
-    transform: scale(1);
-    box-shadow: 10px 30px 50px rgb(58, 57, 57, 0.7);
-}
-
 #about-panel {
     display: none;
 }
