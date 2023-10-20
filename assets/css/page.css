@@ -1,71 +1,112 @@
-#video-editor-nav{
-    overflow: hidden; height:36px;
-}
-#listener_gif{
-    mix-blend-mode: screen; margin:0px; position: relative;  top:-20px; left:-40px; display:none;
+*,
+body a {
+    text-decoration: none;
 }
 
-#navbarcustom{
+#video-editor-nav {
+    overflow: hidden;
+    height: 36px;
+}
+#listener_gif {
+    mix-blend-mode: screen;
+    margin: 0px;
+    position: relative;
+    top: -20px;
+    left: -40px;
+    display: none;
+}
+
+#navbarcustom {
     overflow: hidden;
 }
-.nav_logo{
-    background:red;
-    z-index: 2;
-    border-radius: 50px;
-    width:40px;
-    position: relative;
+/* Home Page Css */
+.home-navbar {
+    width: 100%;
+    background-color: #ffffff;
+}
+nav .left-container h2 {
+    font-family: "Oswald", sans-serif;
+}
+.logoImg img {
+    height: 50px;
+    filter: drop-shadow(0px 0px 4px rgb(238, 133, 138));
+    transition: all 0.4s ease;
+}
+.logoImg img:hover {
+    filter: drop-shadow(0px 0px 12px rgb(255, 100, 108));
+}
+nav .right-container a {
+    color: #000000;
+    border: 1px solid #00000060;
+    padding: 6px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+nav .right-container a:hover {
+    background-color: #00000020;
+}
+
+@media screen and (max-width: 991px) {
+    nav .right-container a {
+        color: #000000;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        border: none;
+    }
+    nav .right-container > div {
+        width: 100%;
+        text-align: center;
+        padding: 5px 0;
+    }
+}
+.home-body {
+    background-color: #ffffff;
+    height: 95vh;
+}
+.home-body .info-card {
+    width: 30%;
     text-align: center;
-    box-shadow: 0px 0px 10px rgb(73, 73, 73);
-    text-shadow: 0px 0px 50px whitesmoke;
-    transition: 0.4s linear;
+    position: absolute;
+    left: calc(50% - 15%);
+    top: 30%;
+    background-color: transparent;
+    z-index: 2;
 }
 
-.nav_logo:hover{
-    box-shadow: 0px 0px 50px rgb(52, 255, 45);
-    text-shadow: 0px 0px 10px rgb(54, 250, 64);
-    background-color: lightgreen;
-}
-
-.cards-row{
-    margin-top:10px;
-}
-.smart-mode-card,.photo-editor-card{
-    padding:10px;
-    margin:10px;
+.smart-mode-card,
+.photo-editor-card {
+    padding: 10px;
+    margin: 10px;
     border-radius: 10px;
     transition: 0.2s ease-in-out;
-    transform: scale(0.9) ;
+    transform: scale(0.9);
     transform-origin: top;
-    box-shadow: 10px 20px 50px rgb(58, 57, 57,0.7);
+    box-shadow: 10px 20px 50px rgb(58, 57, 57, 0.7);
 }
 
-.smart-mode-card{
+.smart-mode-card {
     background: whitesmoke;
     overflow: hidden;
 }
 
-.smart-mode-card div{
+.smart-mode-card div {
     z-index: 5;
 }
 
-
-
-
-.photo-editor-card{
-    background:#212529;
-    color :whitesmoke;
+.photo-editor-card {
+    background: #212529;
+    color: whitesmoke;
 }
 
-
-.smart-mode-card:hover,.photo-editor-card:hover{
-    transform: scale(1) ;
-    box-shadow: 10px 30px 50px rgb(58, 57, 57,0.7);
+.smart-mode-card:hover,
+.photo-editor-card:hover {
+    transform: scale(1);
+    box-shadow: 10px 30px 50px rgb(58, 57, 57, 0.7);
 }
 
-.custom-main-box , body{
-    background:whitesmoke;
-}
-
-#about-panel{
+#about-panel {
     display: none;
 }
+/* Photo Editor Page Css */

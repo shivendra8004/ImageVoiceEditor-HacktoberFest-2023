@@ -1,435 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Editor</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Smart Editor</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-    <link rel="stylesheet" href="assets/css/photo-editor-panel.css" />
+        <link rel="stylesheet" href="assets/css/photo-editor-panel.css" />
 
-    <link rel="stylesheet" href="assets/css/page.css" />
+        <link rel="stylesheet" href="assets/css/page.css" />
 
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>"
-    />
+        <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>"
+        />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+        <!-- Google Oswald Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet" />
+    </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbarcustom">
-      <div class="container-fluid">
-        <a class="navbar-brand nav_logo" id="open-home-panel" href="#">🧠</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="custom-nav">
-            <li class="nav-item" id="open-home-panel">
-              <a class="nav-link" id="home-nav" aria-current="page" href="#"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item" id="open-photo-editor">
-              <a class="nav-link" id="photo-editor-nav" href="#"
-                >Photo Editor</a
-              >
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" id="about-nav" href="#">About</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" id="video-editor-nav" href="#">
-                <img
-                  src="assets/gif/eq.gif"
-                  id="listener_gif"
-                  width="100"
-                  height="auto"
-                  alt=""
-                  srcset=""
-                />
-              </a>
-            </li>
-
-            <!-- <li class="nav-item">
-                        <a class="nav-link" id="video-editor-nav" href="#">Video Editor</a>
-                    </li> -->
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container-fluid custom-main-box">
-      <!-- Modal -->
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Save Image</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"
-                  >File Name :
-                </span>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Filename"
-                  id="image_filename"
-                />
-              </div>
-
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Image Format :
-                </label>
-                <select class="form-select" id="image_format">
-                  <option value="png">PNG</option>
-                  <option value="jpg">JPG</option>
-                  <option value="jpeg">JPEG</option>
-                </select>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary" id="save_image_btn">
-                Save Image
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr />
-
-      <div class="container-fluid" id="about-panel">
-        <div class="photo-editor-heading" style="margin-bottom: 20px">
-          <h3>About <i class="fa fa-get-pocket"></i></h3>
-        </div>
-
-        <h6><b>- Smart Editor 🧠 </b></h6>
-        <h6>
-          A Intermediate Level Project Based on Web Photo Editing but Smartly 🧠
-        </h6>
-        <h6>
-          Smart Editor have two mode that is Manual and Smart, Smart Mode is
-          based On Voice Commands 🎙
-        </h6>
-        <h6>
-          It uses Voice Recognition System for Smart Mode and then voice get
-          converted into text then some script conditions 💻
-        </h6>
-        <h6>
-          It took me <b>15hr</b> to Develop <b>Smart Editor</b>, as i was
-          totally new for this type of Idea 💡
-        </h6>
-        <br />
-        <h6><b>- About Developer</b></h6>
-        <h6>Developer : Rohan S. Prajapati</h6>
-        <h6>Project : Smart Editor 🧠</h6>
-        <h6>Project For : CSS ( client side scripting ) (javascript)</h6>
-        <h6>Roll No : 1520</h6>
-        <h6>Enrollment No. : 1900440052</h6>
-        <h6>Branch : CO</h6>
-        <h6>Sem : 5th</h6>
-        <h6>Year : TY</h6>
-      </div>
-
-      <div class="container-fluid" id="photo-editor-panel">
-        <div class="photo-editor-heading">
-          <h3>Photo Editor <i class="fa fa-image"></i></h3>
-        </div>
-
-        <div class="row">
-          <div class="col-4" id="image-input-box">
-            <div class="mb-3">
-              <label for="formFileSm" class="form-label">Open Image</label>
-              <input
-                class="form-control form-control-sm"
-                id="Inputimage"
-                type="file"
-                accept="image/png, image/jpeg, image/jpg"
-              />
-            </div>
-
-            <div id="confirm-image-box">
-              <img
-                src=""
-                class="img-thumbnail"
-                alt="..."
-                id="thumbnail-image-confirmation"
-              />
-              <br />
-
-              <div class="btn-group" role="group">
-
-                <div class="col">
-                  <button
-                    type="button"
-                    class="btn btn-success"
-                    id="confirmImage"
-                  >
-                    Confirm
-                  </button>
+    <body>
+        <section class="home-navbar d-flex align-items-center">
+            <nav class="container-fluid navbar navbar-expand-lg navbar-light" id="navbarcustom">
+                <div class="w-100 d-flex justify-content-between align-items-center">
+                    <div class="left-container d-flex align-items-center">
+                        <div class="logoImg">
+                            <img src="./assets/images/logo.png" alt="Logo" />
+                        </div>
+                        <h2 class="m-0">Smart Editor</h2>
+                    </div>
+                    <button
+                        class="navbar-toggler m-0"
+                        style="height: 30px; width: 30px; padding: 0"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon" style="font-size: 0.9rem"></span>
+                    </button>
                 </div>
-                <div class="col">
-                  <button type="button" class="btn btn-danger" id="cancleImage">
-                    Cancel
-                  </button>
+                <div class="right-container collapse navbar-collapse w-100 justify-content-around" id="navbarSupportedContent">
+                    <div>
+                        <a href="/">Home</a>
+                    </div>
+                    <div>
+                        <a href="./photoEditor.html">Photo Editor</a>
+                    </div>
+                    <div>
+                        <a onclick="">Video Editor</a>
+                    </div>
+                    <div>
+                        <a href="./about.html">About</a>
+                    </div>
                 </div>
-
-              </div>
+            </nav>
+        </section>
+        <section class="home-body" id="particles-js">
+            <div class="info-card" style="font-size: 1.1rem">
+                <h1 style="font-size: 4rem">Smart Editor</h1>
+                <p class="m-0">
+                    <span> Smart Editor</span> is a image editor tool which have two mode that is <span style="font-weight: 500"> manual</span> and
+                    <span style="font-weight: 500">smart</span> , Smart Mode is based On <span style="font-weight: 500"> voice commands</span>
+                </p>
+                <a class="btn btn-primary px-5 mt-4" href="/about.html">Know More</a>
             </div>
-          </div>
-          <div class="col-5" id="canvasBox">
-            <canvas id="Imagecanvas"> </canvas>
-          </div>
-
-          <div class="col-3" id="imageOperationBox">
-            <label for="customRange1" class="form-label">
-              Sepia - <input type="checkbox" id="sepia_checkbox" />
-            </label>
-            <br />
-
-            <label for="customRange1" class="form-label">
-              Brightness - <label id="brightness_range_counter">100</label>%
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="1000"
-              value="100"
-              class="form-range"
-              id="brightness_range"
-            />
-
-            <label for="customRange1" class="form-label">
-              Contrast - <label id="contrast_range_counter">100</label>%
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="1000"
-              value="100"
-              class="form-range"
-              id="contrast_range"
-            />
-
-            <label for="customRange1" class="form-label">
-              Saturation - <label id="saturate_range_counter">100</label>%
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="1000"
-              value="100"
-              class="form-range"
-              id="saturate_range"
-            />
-
-            <label for="customRange1" class="form-label">
-              Blur - <label id="blur_range_counter">0</label>%
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="1000"
-              value="0"
-              class="form-range"
-              id="blur_range"
-            />
-
-            <label for="customRange1" class="form-label">
-              Hue Rotate - <label id="hue_range_counter">0</label> Deg
-            </label>
-            <input
-              type="range"
-              min="-360"
-              max="360"
-              value="0"
-              class="form-range"
-              id="hue_range"
-            />
-
-            <label for="customRange1" class="form-label">
-              Gray Scale - <label id="grayscale_range_counter">0</label> %
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value="0"
-              class="form-range"
-              id="grayscale_range"
-            />
-
-            <!-- <label for="customRange1" class="form-label">
-                        Opacity - <label id="opacity_range_counter">0</label> %    
-                    </label>
-                    <input type="range" min="0" max="100" value="0" class="form-range" id="opacity_range"> -->
-          </div>
-
-          <div class="col-3" id="imageOperationBox2">
-            <label for="customRange1" class="form-label">
-              Invert - <label id="invert_range_counter">0</label> %
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value="0"
-              class="form-range"
-              id="invert_range"
-            />
-
-            <label for="customRange1" class="form-label">
-              Drop Shadow X -
-              <label id="drop_shadow_x_range_counter">0</label> px
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="1000"
-              value="0"
-              class="form-range"
-              id="drop_shadow_x_range"
-            />
-
-            <label for="customRange1" class="form-label">
-              Drop Shadow Y -
-              <label id="drop_shadow_y_range_counter">0</label> px
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="1000"
-              value="0"
-              class="form-range"
-              id="drop_shadow_y_range"
-            />
-
-            <label for="customRange1" class="form-label">
-              Drop Shadow Blur -
-              <label id="drop_shadow_blur_range_counter">0</label> px
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="1000"
-              value="0"
-              class="form-range"
-              id="drop_shadow_blur_range"
-            />
-
-            <label for="customRange1" class="form-label">
-              Drop Shadow Color - <label id="drop_shadow_color_counter"></label>
-            </label>
-            <input type="color" class="form-range" id="drop_shadow_color" />
-
-            <div
-              class="btn-group d-flex flex-md-row flex-column justify-content-between mt-2 column-gap-1"
-              role="group"
-              aria-label="Basic example"
-            >
-              <button
-                class="btn btn-secondary px-3"
-                type="button"
-                id="imagecompare"
-                value="0"
-              >
-                Show Old
-              </button>
-              <button
-                class="btn btn-warning px-3"
-                type="button"
-                id="reset_image_filter"
-              >
-                Reset Filters
-              </button>
-              <button
-                class="btn btn-danger px-2"
-                type="button"
-                id="reset_image"
-              >
-                Reset Image
-              </button>
-            </div>
-            <button
-              type="button"
-              class="btn btn-success mt-2 w-100 text-center"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            >
-              Download
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="container-fluid" id="home-panel">
-        <h3>Home <i class="fa fa-home"></i></h3>
-        <div class="row cards-row">
-          <div class="col-sm-6">
-            <div class="card photo-editor-card">
-              <div class="card-body">
-                <h5 class="card-title">Photo Editor 📷</h5>
-                <p class="card-text">Edit Your Photo Smartly!</p>
-                <a
-                  class="btn btn-primary"
-                  id="open-photo-editor"
-                  targetid="photo-editor-nav"
-                  >Open Editor</a
-                >
-              </div>
-            </div>
-          </div>
-          <!-- <div class="col-sm-6">
+        </section>
+        <section class="features">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card photo-editor-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Photo Editor 📷</h5>
+                                <p class="card-text">Edit Your Photo Smartly!</p>
+                                <a class="btn btn-primary" href="./photoEditor.html" targetid="photo-editor-nav">Open Editor</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Video Editor</h5>
@@ -438,29 +104,45 @@
                         </div>
                     </div>
                 </div> -->
-
-          <br /><br /><br /><br /><br /><br /><br />
-
-          <div class="col-sm-6">
-            <div class="card smart-mode-card">
-              <div class="card-body">
-                <h5 class="card-title">Smart Mode 🧠</h5>
-                <p class="card-text">Smart Mode (uses voice recognition)</p>
-                <a href="#" class="btn btn-primary" id="smartMode" value="0"
-                  >Turn ON</a
-                >
-              </div>
+                    <div class="col-12">
+                        <div class="card smart-mode-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Smart Mode 🧠</h5>
+                                <p class="card-text">Smart Mode (uses voice recognition)</p>
+                                <a href="#" class="btn btn-primary" id="smartMode" value="0">Turn ON</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="assets/js/photo-editor.js"></script>
-    <script src="assets/js/speechSynthesis.js"></script>
-    <script src="assets/js/taskmanager.js"></script>
-    <script src="assets/js/tasks.js"></script>
-    <script src="assets/js/speech.js"></script>
-    <script src="assets/js/page-controller.js"></script>
-  </body>
+        </section>
+        <!-- scripts -->
+        <script src="./assets/js/particles.js"></script>
+        <script src="./assets/js/app.js"></script>
+        <script>
+            var count_particles, stats, update;
+            stats = new Stats();
+            stats.setMode(0);
+            stats.domElement.style.position = "absolute";
+            stats.domElement.style.left = "0px";
+            stats.domElement.style.top = "0px";
+            document.body.appendChild(stats.domElement);
+            count_particles = document.querySelector(".js-count-particles");
+            update = function () {
+                stats.begin();
+                stats.end();
+                if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+                    count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+                }
+                requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+        </script>
+        <script src="assets/js/photo-editor.js"></script>
+        <script src="assets/js/speechSynthesis.js"></script>
+        <script src="assets/js/taskmanager.js"></script>
+        <script src="assets/js/tasks.js"></script>
+        <script src="assets/js/speech.js"></script>
+        <script src="assets/js/page-controller.js"></script>
+    </body>
 </html>
